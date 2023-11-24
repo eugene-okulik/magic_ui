@@ -10,6 +10,7 @@ from pages.customer_login import CustomerLogin
 def driver():
     options = Options()
     options.add_argument("--headless")
+    options.add_argument('--no-sandbox')
     chrome_driver = webdriver.Chrome(options=options)
     sleep(3)
     return chrome_driver
