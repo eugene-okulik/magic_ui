@@ -1,8 +1,11 @@
 import logging
 
+import pytest
+
 LOGGER = logging.getLogger(__name__)
 
 
+@pytest.mark.smoke
 def test_incorrect_login(login_page):
     login_page.open_page()
     login_page.fill_login_form('wewewe@wrerte.com', 'sdkfjshdkfjshdf')
@@ -13,6 +16,7 @@ def test_incorrect_login(login_page):
     LOGGER.info('Test result is Ok')
 
 
+@pytest.mark.regression
 def test_correct_email_with_incorrect_pass(login_page):
     login_page.open_page()
     login_page.fill_login_form('existint@email.com', 'non-existing-pass')
